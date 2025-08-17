@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Trip Countdown</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container" role="main" id="app">
+    <h1 id="titleMain">Countdown</h1>
+
+    <form id="controls" aria-label="Countdown controls">
+      <label for="eventName">Event name</label>
+      <input id="eventName" type="text" placeholder="e.g. Paris Trip" />
+
+      <label for="partnerName">With</label>
+      <input id="partnerName" type="text" placeholder="e.g. Sarah" />
+
+      <label for="target">Target date & time</label>
+      <input id="target" type="datetime-local" aria-describedby="target-help" />
+
+      <label for="doneMessage">Message when time's up</label>
+      <input id="doneMessage" type="text" placeholder="e.g. Time for our adventure! ❤️" />
+
+      <div class="bg-row">
+        <div>
+          <label for="bgUrl">Background image URL</label>
+          <input id="bgUrl" type="url" placeholder="https://example.com/photo.jpg" />
+        </div>
+        <div>
+          <label for="bgFile">Or upload a photo</label>
+          <input id="bgFile" type="file" accept="image/*" />
+        </div>
+      </div>
+
+      <label for="theme">Theme</label>
+      <select id="theme" aria-label="Theme selector">
+        <option value="default">Default</option>
+        <option value="romantic">Romantic</option>
+        <option value="beach">Beach</option>
+        <option value="party">Party</option>
+      </select>
+
+      <div class="buttons">
+        <button type="button" id="setBtn">Set & Start</button>
+        <button type="button" id="pauseBtn">Pause</button>
+        <button type="button" id="resetBtn">Reset</button>
+        <button type="button" id="shareBtn">Copy Share Link</button>
+      </div>
+
+      <div class="hint small">Tip: Use the share link to send the countdown to someone. Uploaded photos are stored locally and won't be included in shared links.</div>
+    </form>
+
+    <section id="display" aria-live="polite" aria-atomic="true">
+      <div id="time-up" class="hidden">
+        <div id="doneText"></div>
+      </div>
+
+      <div id="counts" class="counts" role="group" aria-label="Time remaining">
+        <div class="count">
+          <div class="number" id="days">0</div>
+          <div class="label">Days</div>
+        </div>
+        <div class="count">
+          <div class="number" id="hours">00</div>
+          <div class="label">Hours</div>
+        </div>
+        <div class="count">
+          <div class="number" id="minutes">00</div>
+          <div class="label">Minutes</div>
+        </div>
+        <div class="count">
+          <div class="number" id="seconds">00</div>
+          <div class="label">Seconds</div>
+        </div>
+      </div>
+
+      <div class="small hint">Target: <span id="targetLabel">not set</span></div>
+    </section>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
