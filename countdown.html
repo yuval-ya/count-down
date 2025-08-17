@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8">
+  <title>הטיימר עד תאילנד</title>
+  <style>
+    body { text-align:center; font-family:Arial; background:#fdf6e3; }
+    h1 { font-size: 2.5em; margin-top: 50px; }
+    #timer { font-size: 2em; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h1>הטיול של  <3</h1>
+  <div id="timer"></div>
+  <script>
+    const weddingDate = new Date("2025-10-20T20:00:00"); // לשנות לתאריך שלכם
+    const timer = document.getElementById("timer");
+    setInterval(() => {
+      const now = new Date();
+      const diff = weddingDate - now;
+      if (diff <= 0) {
+        timer.innerText = "מזל טוב!!! 🎉🎊";
+      } else {
+        const days = Math.floor(diff / (1000*60*60*24));
+        const hours = Math.floor((diff / (1000*60*60)) % 24);
+        const mins = Math.floor((diff / (1000*60)) % 60);
+        const secs = Math.floor((diff / 1000) % 60);
+        timer.innerText = `${days} ימים ${hours}:${mins}:${secs}`;
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
